@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entries - SaneX Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>SaneX Web</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="masters.html" class="nav-link">Masters</a></li>
+                <li><a href="entries.html" class="nav-link active">Entries</a></li>
+                <li><a href="reports.html" class="nav-link">Reports</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+            </ul>
+            <div class="user-info">
+                <span id="usernameDisplay">Welcome, User</span>
+                <button onclick="Auth.logout()" class="btn btn-sm btn-outline">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Entries Management</h1>
+            <p>Record production and sales entries</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="openEntryTab('production')">Production Entry</button>
+            <button class="tab" onclick="openEntryTab('sales')">Sales Entry</button>
+        </div>
+
+        <!-- Production Entry Tab -->
+        <div id="production" class="tab-content active">
+            <div class="entry-form-container">
+                <form id="productionForm" class="entry-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="prodNumber">Production Number *</label>
+                            <input type="text" id="prodNumber" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="prodDate">Date *</label>
+                            <input type="date" id="prodDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prodShift">Shift *</label>
+                            <select id="prodShift" class="form-control" required>
+                                <option value="">Select Shift</option>
+                                <option value="Morning">Morning</option>
+                                <option value="Evening">Evening</option>
+                                <option value="Night">Night</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prodOperator">Operator *</label>
+                            <select id="prodOperator" class="form-control" required>
+                                <option value="">Select Operator</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prodMachine">Machine *</label>
+                            <select id="prodMachine" class="form-control" required>
+                                <option value="">Select Machine</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="items-section">
+                        <h3>Production Items</h3>
+                        <div class="items-header">
+                            <button type="button" class="btn btn-sm btn-success" onclick="addProductionItem()">
+                                + Add Item
+                            </button>
+                        </div>
+                        <div id="productionItems" class="items-container">
+                            <!-- Production items will be added here -->
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary">Save Production</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sales Entry Tab -->
+        <div id="sales" class="tab-content">
+            <div class="entry-form-container">
+                <form id="salesForm" class="entry-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="saleOrderNo">Order Number *</label>
+                            <input type="text" id="saleOrderNo" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="saleDate">Date *</label>
+                            <input type="date" id="saleDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="saleParty">Party *</label>
+                            <select id="saleParty" class="form-control" required>
+                                <option value="">Select Party</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="items-section">
+                        <h3>Sale Items</h3>
+                        <div class="items-header">
+                            <button type="button" class="btn btn-sm btn-success" onclick="addSaleItem()">
+                                + Add Item
+                            </button>
+                        </div>
+                        <div id="salesItems" class="items-container">
+                            <!-- Sales items will be added here -->
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary">Save Sale</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/entries.js"></script>
+</body>
+</html>

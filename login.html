@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SaneX Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>SaneX Web</h1>
+                <p>Sign in to your account</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required placeholder="Enter your username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required placeholder="Enter your password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </form>
+            
+            <div id="message" class="message" style="display: none;"></div>
+            
+            <div class="login-info">
+                <h4>Default Login Credentials</h4>
+                <div class="credentials">
+                    <p><strong>Username:</strong> Admin</p>
+                    <p><strong>Password:</strong> Admin</p>
+                </div>
+                <p class="info-note">Please change the default password after first login for security.</p>
+            </div>
+            
+            <div class="login-footer">
+                <p>Don't have an account? <a href="help.html">Contact administrator</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
